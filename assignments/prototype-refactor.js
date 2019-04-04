@@ -9,10 +9,10 @@ Prototype Refactor
 */
 
 class GameObject {
-    constructor(stats) {
-        this.newCreatedAt = stats.createdAt,
-        this.newName = stats.name,
-        this.newDimensions = stats.dimensions;
+    super(stats) {
+        this.createdAt = stats.createdAt,
+        this.name = stats.name,
+        this.dimensions = stats.dimensions;
     }
 
     destroy() {
@@ -23,68 +23,50 @@ class GameObject {
 
 
   class CharacterStats extends GameObject {
-    constructor(stats) {
+    super(stats) {
         this.healthPoints = stats.healthPoints
+    }
+
+    takeDamage() {
+        return `${this.name} took damage`;
     }
   }
 
-  function CharacterStats(stats) {
-    GameObject.call(this, stats)
-    this.healthPoints = stats.healthPoints;
-  };
-  CharacterStats.prototype = Object.create(GameObject.prototype)
-  
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} took damage`;
-  }
-  
-  
-  /*
-    === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
-  */
-  
-      function Humanoid(stats) {
-        CharacterStats.call(this, stats)
+
+ 
+ class Humanoid extends CharacterStats {
+     super(stats) {
         this.team = stats.team;
         this.weapons = stats.weapons;
         this.language = stats.language;
-      }
-      Humanoid.prototype = Object.create(CharacterStats.prototype);
-  
-  
-      Humanoid.prototype.greet = function() {
+     }
+
+     greet() {
         return `${this.name} offers a greeting in ${this.language}`;
+     }
+ }
+  
+      class Hero extends Humanoid {
+          super(stats) {
+            this.origin = stats.origin;
+          }
+
+          protect() {
+            return `${this.name} declares protection over his home state of ${this.origin}!`;
+          }
       }
-  
-  
-  
-      function Hero(stats) {
-        Humanoid.call(this, stats)
-         this.origin = stats.origin;
-      }
-      Hero.prototype = Object.create(Humanoid.prototype);
-  
-      Hero.prototype.protect = function() {
-        return `${this.name} declares protection over his home state of ${this.origin}!`;
-      }
-  
-  
-  
-      function Villain(stats) {
-        Humanoid.call(this, stats)
+
+      
+
+  //    function Villain(stats) {
+  //      Humanoid.call(this, stats)
          
-      };
-      Villain.prototype = Object.create(Humanoid.prototype);
+  //    };
+  //    Villain.prototype = Object.create(Humanoid.prototype);
   
-      Villain.prototype.pillage = function() {
-        return `${this.name} set the town ablaze!`;
-      }
+  //    Villain.prototype.pillage = function() {
+  //      return `${this.name} set the town ablaze!`;
+  //    }
   
   
    
