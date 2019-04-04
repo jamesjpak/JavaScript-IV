@@ -23,8 +23,8 @@ class GameObject {
 
 
   class CharacterStats extends GameObject {
-    super(stats) {
-        this.healthPoints = stats.healthPoints
+    super(Cstats) {
+        this.healthPoints = Cstats.healthPoints
     }
 
     takeDamage() {
@@ -35,10 +35,10 @@ class GameObject {
 
  
  class Humanoid extends CharacterStats {
-     super(stats) {
-        this.team = stats.team;
-        this.weapons = stats.weapons;
-        this.language = stats.language;
+     super(Hstats) {
+        this.team = Hstats.team;
+        this.weapons = Hstats.weapons;
+        this.language = Hstats.language;
      }
 
      greet() {
@@ -47,8 +47,8 @@ class GameObject {
  }
   
       class Hero extends Humanoid {
-          super(stats) {
-            this.origin = stats.origin;
+          super(Xstats) {
+            this.origin = Xstats.origin;
           }
 
           protect() {
@@ -58,26 +58,6 @@ class GameObject {
 
       
 
-  //    function Villain(stats) {
-  //      Humanoid.call(this, stats)
-         
-  //    };
-  //    Villain.prototype = Object.create(Humanoid.prototype);
-  
-  //    Villain.prototype.pillage = function() {
-  //      return `${this.name} set the town ablaze!`;
-  //    }
-  
-  
-   
-  /*
-    * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-    * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-    * Instances of CharacterStats should have all of the same properties as GameObject.
-  */
-  
-  // Test you work by un-commenting these 3 objects and the list of console logs below:
-  
   
     const mage = new Humanoid({
       createdAt: new Date(),
