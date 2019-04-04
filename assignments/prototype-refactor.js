@@ -9,9 +9,9 @@ Prototype Refactor
 */
 
 class GameObject {
-    super(stats) {
-        this.createdAt = stats.createdAt,
-        this.name = stats.name,
+    constructor(stats) {
+        this.createdAt = stats.createdAt;
+        this.name = stats.name;
         this.dimensions = stats.dimensions;
     }
 
@@ -23,8 +23,10 @@ class GameObject {
 
 
   class CharacterStats extends GameObject {
-    super(Cstats) {
-        this.healthPoints = Cstats.healthPoints
+    constructor(Cstats) {
+        super(Cstats);
+
+        this.healthPoints = Cstats.healthPoints;
     }
 
     takeDamage() {
@@ -35,7 +37,9 @@ class GameObject {
 
  
  class Humanoid extends CharacterStats {
-     super(Hstats) {
+     constructor(Hstats) {
+         super(Hstats);
+
         this.team = Hstats.team;
         this.weapons = Hstats.weapons;
         this.language = Hstats.language;
@@ -47,7 +51,9 @@ class GameObject {
  }
   
       class Hero extends Humanoid {
-          super(Xstats) {
+          constructor(Xstats) {
+              super(Xstats);
+
             this.origin = Xstats.origin;
           }
 
