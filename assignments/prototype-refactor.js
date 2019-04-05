@@ -23,10 +23,10 @@ class GameObject {
 
 
   class CharacterStats extends GameObject {
-    constructor(Cstats) {
-        super(Cstats);
+    constructor(charStats) {
+        super(charStats);
 
-        this.healthPoints = Cstats.healthPoints;
+        this.healthPoints = charStats.healthPoints;
     }
 
     takeDamage() {
@@ -37,12 +37,12 @@ class GameObject {
 
  
  class Humanoid extends CharacterStats {
-     constructor(Hstats) {
-         super(Hstats);
+     constructor(humStats) {
+         super(humStats);
 
-        this.team = Hstats.team;
-        this.weapons = Hstats.weapons;
-        this.language = Hstats.language;
+        this.team = humStats.team;
+        this.weapons = humStats.weapons;
+        this.language = humStats.language;
      }
 
      greet() {
@@ -51,10 +51,10 @@ class GameObject {
  }
   
       class Hero extends Humanoid {
-          constructor(Xstats) {
-              super(Xstats);
+          constructor(heroStats) {
+              super(heroStats);
 
-            this.origin = Xstats.origin;
+            this.origin = heroStats.origin;
           }
 
           protect() {

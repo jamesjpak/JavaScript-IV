@@ -29,6 +29,10 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`;
     }
+
+    takeawayPoints(student) {
+        
+    }
 }
 
 
@@ -90,6 +94,36 @@ const jim = new Instructor({
     catchPhrase: `Chicken in the corn!`
   });
 
+  const jimmy = new Instructor({
+    name: 'Jimmifer',
+    location: 'San Francisco',
+    age: 22,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Back-end',
+    catchPhrase: `You miss all the shots you don't take`
+  });
+
+  const ronald = new ProjectManager({
+      name: 'Ronald',
+      location: 'McdonaldLand'
+      age: 21,
+      gender: 'Male',
+      favLanguage: 'Javascript',
+      specialty: 'Back-end',
+      catchPhrase: `Ma ma!`
+  });
+
+  const sunny = new ProjectManager({
+    name: 'Sunny',
+    location: 'Badlands'
+    age: 32,
+    gender: 'Male',
+    favLanguage: 'Javascript',
+    specialty: 'Back-end',
+    catchPhrase: `If it ain't now, it ain't eva!`
+});
+
 
   const bob = new Student({
     name: 'Bob',
@@ -101,4 +135,16 @@ const jim = new Instructor({
     catchPhrase: `Said the corn can't grow!`
   });
 
+  const kelly = new Student({
+    name: 'Kelly',
+    location: 'Montana',
+    age: 27,
+    gender: 'female',
+    favLanguage: 'C#',
+    specialty: 'Back-end',
+    catchPhrase: `How can we access a higher dimension?`
+  });
+
   console.log(jim.grade(bob, "Holla"));
+
+  
